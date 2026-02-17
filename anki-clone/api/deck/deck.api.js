@@ -19,8 +19,8 @@ export const submitNewDeck = async (deckName) => {
 };
 
 export const getDecks = async () => {
-	console.log("WE AREE IN MOCK MODE");
-	return {response:{rows:MOCK_DECKS}, message:"MOCK"};
+	//console.log("WE AREE IN MOCK MODE");
+	//return {response:{rows:MOCK_DECKS}, message:"MOCK"};
   const result = await fetch(`${apiUrl}/getAllDecks`, {
     method: "GET",
     credentials: "include",
