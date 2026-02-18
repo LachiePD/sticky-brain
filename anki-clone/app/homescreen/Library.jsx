@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { LoadingContext } from "@/app/LoadingContext.js";
 import DeckLink from "./DeckLink.jsx";
 
-const Library = ({ deckList, deckListActions, deckSelectionEvent }) => {
+const Library = ({ deckList, deckListActions}) => {
   const [error, setError] = useState(null);
   const { loading, setLoading } = useContext(LoadingContext);
 
@@ -10,7 +10,7 @@ const Library = ({ deckList, deckListActions, deckSelectionEvent }) => {
     return deckList.map((deck) => {
       return (
         <DeckLink
-          deckSelectionEvent={deckSelectionEvent}
+          deckSelectionEvent={deckListActions.selectDeckById}
           handleDelete={deckListActions.removeDeck}
           key={deck.id}
           data={deck}
