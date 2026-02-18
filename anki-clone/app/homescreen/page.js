@@ -12,7 +12,6 @@ const Page = () => {
   const { user, setUser } = useContext(UserContext);
   const { deckList, selectedDeck, actions: deckListActions } = useDeckList();
 
-	console.log(selectedDeck);
 
   return (
     <div className={"flex bg-green-200 w-full h-screen p-4 flex-row wrap"}>
