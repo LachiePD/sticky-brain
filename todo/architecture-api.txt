@@ -13,4 +13,4 @@ there needs to be a middleware to handle assertData() for the controllers. It wi
 
 need to create a helper function in the  Service layer to check for valid response. 
 
-have a look at useDeckList hook , theres a lot happening there
+have a look at useDeckList hook , theres a lot happening there, probably time for deckList to become a context. Thats the easier answer, I dont love it 
