@@ -1,15 +1,22 @@
 import {useState} from 'react';
 import SubmitButton from '@/components/SubmitButton.jsx';
-const Editor = ({handleNewCard}) =>{
+const Editor = ({handleNewFlashcard, startPractice}) =>{
 
+
+	//TODO join this state into one. will need to check the handleNewFlashcard call will work after. 
 	const [front, setFront] = useState("");
 	const [back, setBack] = useState("");
 
 	const handleSubmit = async () =>{
+	
 		const card = {front, back};
-		const response = await handleNewCard(card);
+		const response = await handleNewFlashcard(card);
+
+		setFront("");
+		setBack("");
 	}
 	const handleChange = (e, state) =>{
+		//TODO this switch needs to be made cleaner, do it once the component state looks like [cardData, setCardData] = useState({front:"", back:""})
 		switch(state){
 			case('front'):
 				setFront(e.target.value);
@@ -35,6 +42,11 @@ const Editor = ({handleNewCard}) =>{
 		onChange={(e)=>handleChange(e, 'back')}/>
 
 		<SubmitButton onClick={handleSubmit}/>
+
+		<br/>
+		<button onClick={ startPractice}>
+		Go to practice
+		</button>
 		</div>
 	)
 }

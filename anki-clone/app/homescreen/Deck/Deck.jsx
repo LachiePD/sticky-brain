@@ -10,32 +10,36 @@ const Deck = ({ deckInfo }) => {
   const { cardList, setCardList, handleNewCard } = useCardList(deckInfo);
   const { mode, actions: modeActions } = useDeckMode();
 
-  return (
-    <div>
-      {mode === "editing" && (
-        <Editor
-          cardList={cardList}
-          handleNewCard={handleNewCard}
-          modeActions={modeActions}
-        />
-      )}
-      {mode === "practicing" && (
-        <Practice
-          key={deckInfo.id}
-          cardList={cardList}
-          modeActions={modeActions}
-        />
-      )}
+  const renderMode = () => {
+	  const props = {cardList, modeActions, deckInfo};
+    switch (mode) {
+      case "practicing":
+        return (
+          <Practice
+            cardList={cardList}
+            modeActions={modeActions}
+          />
+        );
 
-      {mode === "inspecting" && (
-        <Inspect
-          key={deckInfo.id}
-          modeActions={modeActions}
-          cardList={cardList}
-        />
-      )}
-    </div>
-  );
+      case "editing":
+        return (
+          <Editor
+            cardList={cardList}
+            handleNewFlashcard={handleNewCard}
+            startPractice={modeActions.startPractice}
+          />
+        );
+
+      case "inspecting":
+        return (
+          <Inspect
+            modeActions={modeActions}
+            cardList={cardList}
+          />
+        );
+    }
+  };
+  return <div>{renderMode()}</div>;
 };
 
 export default Deck;

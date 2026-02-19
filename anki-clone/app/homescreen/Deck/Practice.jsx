@@ -1,23 +1,24 @@
-import { useState } from "react";
-import Flashcard from "./Flashcard/Flashcard.jsx";
+import { useFlashcard } from "./useFlashcard.jsx";
 
 const Practice = ({ cardList }) => {
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const flashcard = useFlashcard({ cardList });
 
-	const incrementIndex = () =>{
-		setActiveCardIndex((prevIndex)=>prevIndex +1)
-
-
-	}
-  const buildCard = () => {
-    const data = cardList[activeCardIndex];
-
-    return <Flashcard data={data} 
-		  handleChangeCard={incrementIndex}
-		  />;
-  };
-
-  return <div>{buildCard()}</div>;
+  return (
+    <div>
+      QUESTION: {flashcard.data.front}
+      <br />
+      <button onClick={flashcard.actions.toggleRevealed}>Show Answer</button>
+      <br />
+      {flashcard.isRevealed && (
+        <>
+          ANSWER: {flashcard.data.back}
+          <br />
+          <button onClick={flashcard.actions.toggleRevealed}>Try Again</button>
+          <br />
+        </>
+      )}
+    </div>
+  );
 };
 
 export default Practice;
