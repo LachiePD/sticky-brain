@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-
+import { useDeckList } from "./DeckListContext.jsx";
 const Creator = ({ createNewDeck }) => {
   const [deckName, setDeckName] = useState("");
+
+  const deckList = useDeckList();
 
   const [error, setError] = useState(null);
   const handleChange = (e) => {
@@ -11,8 +13,7 @@ const Creator = ({ createNewDeck }) => {
   };
 
   const handleSubmit = async () => {
-    await createNewDeck(deckName);
-
+    await deckList.actions.createNewDeck(deckName);
     setDeckName("");
   };
   return (
@@ -21,11 +22,11 @@ const Creator = ({ createNewDeck }) => {
         className={"h-[30%]"}
         onChange={(e) => handleChange(e)}
         placeholder={"name of deck"}
-	  value={deckName}
+        value={deckName}
       />
       <button
         type={"submit"}
-        onClick={(e) => handleSubmit(e)}
+        onClick={handleSubmit}
         className={"flex h-12 w-13 rounded-full border-3 border-blue-200"}
       >
         submit

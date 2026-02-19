@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-
+import {useDeckList} from '../DeckListContext.jsx';
 export const useFlashcard = ({ cardList = [] }) => {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const [data, setData] = useState({ front: "", back: "" });
   const [isRevealed, setRevealed] = useState(false);
+
+  const isFinished = activeCardIndex >= cardList.length;
 
   useEffect(() => {
     getNewCard(activeCardIndex);
@@ -17,11 +19,13 @@ export const useFlashcard = ({ cardList = [] }) => {
     setRevealed((prev) => !prev);
   };
   const getNewCard = () => {
-	  if (activeCardIndex + 1 > cardList.length){return}
+    if (activeCardIndex + 1 > cardList.length) {
+      return;
+    }
     const newCard = cardList[activeCardIndex];
     setData({ front: newCard.front, back: newCard.back });
     setRevealed(false);
   };
 
-  return { data, isRevealed, activeCardIndex, actions: { next, toggleRevealed } };
+  return { data, isRevealed, isFinished, actions: { next, toggleRevealed } };
 };

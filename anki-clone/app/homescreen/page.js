@@ -1,25 +1,22 @@
 "use client";
-
+import {useContext} from 'react';
 import { UserContext } from "../UserContext.js";
-import { useContext, useState } from "react";
-import { useDeckList } from "./useDeckList.jsx";
+import {useDeckList} from './DeckListContext.jsx';
 import Library from "./Library.jsx";
 import SideBar from "./SideBar.js";
 import Creator from "./Creator.jsx";
-import Deck from "./Deck/Deck.jsx";
+import Controller from "./Views/Controller.jsx";
 
 const Page = () => {
+	//TODO remove this context, not sure how far it goes
   const { user, setUser } = useContext(UserContext);
-  const { deckList, selectedDeck, actions: deckListActions } = useDeckList();
 
-
+	const deckList = useDeckList();
   return (
     <div className={"flex bg-green-200 w-full h-screen p-4 flex-row wrap"}>
+	  //TODO remove Sidebar
       <SideBar>
-        <Library
-          deckListActions={deckListActions}
-          deckList={deckList}
-        />
+        <Library />
       </SideBar>
       <div className={"flex w-full flex-col h-full rounded  bg-purple-200 "}>
         <div
@@ -27,13 +24,13 @@ const Page = () => {
         >
           <h1> my sticky brain :)</h1>
         </div>
-        {selectedDeck ? (
-          <Deck key={selectedDeck.id} deckInfo={selectedDeck} />
+        {deckList.selectedDeck ? (
+          <Controller  />
         ) : (
-          <Creator createNewDeck={deckListActions.createNewDeck} />
+          <Creator />
         )}
       </div>
-	    </div>
+    </div>
   );
 };
 

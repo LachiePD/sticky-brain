@@ -6,40 +6,32 @@ import Practice from "./Practice.jsx";
 import Editor from "./Editor.jsx";
 import Inspect from "./Inspect.jsx";
 
-const Deck = ({ deckInfo }) => {
-  const { cardList, setCardList, handleNewCard } = useCardList(deckInfo);
+const Controller = () => {
+  //TODO have a look at making this const mode = useDeckMode(), i dont like giving actions an alias all the time;
   const { mode, actions: modeActions } = useDeckMode();
+  const {cardList, handleNewFlashcard} = useCardList();
 
   const renderMode = () => {
-	  const props = {cardList, modeActions, deckInfo};
     switch (mode) {
       case "practicing":
-        return (
-          <Practice
-            cardList={cardList}
-            modeActions={modeActions}
-          />
-        );
+        return <Practice modeActions={modeActions}
+			    cardList={cardList}/>;
 
       case "editing":
         return (
           <Editor
-            cardList={cardList}
-            handleNewFlashcard={handleNewCard}
+            //TODO this part of the hook should probably be moved to useSelectedDeck();
+            handleNewFlashcard={handleNewFlashcard}
             startPractice={modeActions.startPractice}
+		cardList={cardList}
           />
         );
 
       case "inspecting":
-        return (
-          <Inspect
-            modeActions={modeActions}
-            cardList={cardList}
-          />
-        );
+        return <Inspect modeActions={modeActions}  />;
     }
   };
   return <div>{renderMode()}</div>;
 };
 
-export default Deck;
+export default Controller;

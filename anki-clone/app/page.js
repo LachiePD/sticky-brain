@@ -4,8 +4,9 @@ import { useState } from "react";
 import { createUser } from "@/api/user/user.js";
 import { useRouter } from "next/navigation";
 import CreateUserForm from '@/components/CreateUserForm.jsx';
-
 import Card from "@/components/Card.jsx";
+
+//TODO make a hook for this
 export default function Home() {
   const router = useRouter();
   const [userName, setUserName] = useState("");

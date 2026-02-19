@@ -1,12 +1,17 @@
-import { useState, useEffect } from "react";
+"use client";
+import { useState, createContext, useEffect, useContext } from "react";
 import {
   getDecks,
   submitNewDeck,
   removeDeck as removeDeckApi,
 } from "@/api/deck/deck.api.js";
 
-export const useDeckList = () => {
-  const [deckList, setDeckList] = useState([]);
+
+
+const DeckListContext = createContext();
+
+export const DeckListProvider = ({ children }) => {
+  const [decks, setDecks] = useState([]);
   const [selectedDeck, setSelectedDeck] = useState(null);
 
   useEffect(() => {
@@ -14,7 +19,7 @@ export const useDeckList = () => {
   }, []);
 
   const selectDeckById = (id) => {
-    const foundDeck = deckList.find((deck) => deck.id === id);
+    const foundDeck = decks.find((deck) => deck.id === id);
     setSelectedDeck(foundDeck);
   };
 
@@ -26,30 +31,36 @@ export const useDeckList = () => {
   const fetchDecks = async () => {
     const data = await getDecks();
     if (!data.response) {
-      setDeckList([]);
+      setDecks([]);
       return;
     }
-    setDeckList(data.response.rows);
+    setDecks(data.response.rows);
   };
 
   const removeDeck = async (deckId) => {
     await removeDeckApi(deckId);
-    setDeckList((prev) => {
+    setDecks((prev) => {
       return prev.filter((deck) => deck.id !== deckId);
     });
   };
 
-  const api = {
-    deckList,
-	  selectedDeck,
+  const value = {
+    decks,
+    selectedDeck,
     actions: {
-      fetchDecks: fetchDecks,
-      createNewDeck: createNewDeck,
-      removeDeck: removeDeck,
-      setDeckList: setDeckList,
-      selectDeckById: selectDeckById,
+      fetchDecks,
+      createNewDeck,
+      removeDeck,
+      setDecks,
+      selectDeckById,
     },
   };
-
-  return api;
+  return (
+    <DeckListContext.Provider value={value}>
+      {children}
+    </DeckListContext.Provider>
+  );
 };
+
+
+export const useDeckList = () => useContext(DeckListContext);
