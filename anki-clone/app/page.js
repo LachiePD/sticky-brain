@@ -36,7 +36,7 @@ const page = () => {
   };
 
   return (
-    <div className={"  flex flex-col  h-full mx-auto "}>
+    <div className={"  flex flex-col  h-full mx-auto  justify-center"}>
       <Card header={"Create User!"} form={<CreateUserForm />} />
       <button
         className={"bg-amber-100  w-min self-end m-5 p-5 rounded-full"}
