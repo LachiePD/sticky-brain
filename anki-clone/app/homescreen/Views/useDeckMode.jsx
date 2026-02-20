@@ -7,14 +7,12 @@ export const useDeckMode = () => {
   const startEditing = () => setCurrent("editing");
   const startInspecting = () => setCurrent("inspecting");
 
-  const api = {
+  return {
     current,
     actions: {
-      startPractice: startPractice,
-      startEditing: startEditing,
-      startInspecting: startInspecting,
+      startPractice,
+      startEditing,
+      startInspecting,
     },
   };
-
-  return api;
 };

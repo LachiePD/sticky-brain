@@ -3,7 +3,7 @@ import { fetchByDeck, createNewCard } from "@/api/card.api.js";
 import { useState, useEffect, useCallback } from "react";
 import { useDeckList } from "../DeckListContext.jsx";
 
-export const useCardList = () => {
+export const useActiveDeck = () => {
 
   const {selectedDeck} = useDeckList();
   const [cardList, setCardList] = useState([]);
