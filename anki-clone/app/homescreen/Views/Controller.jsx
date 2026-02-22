@@ -1,5 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
 import { useDeckMode } from "./useDeckMode.jsx";
 import { useActiveDeck } from "./useActiveDeck.jsx";
 import { useDeckList } from "../DeckListContext.jsx";
