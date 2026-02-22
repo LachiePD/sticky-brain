@@ -1,12 +1,11 @@
 //TODO , should this really be called NavItem?
 
 import MeatballMenu from "@/components/MeatballMenu/MeatballMenu.jsx";
+//TODO, data is bad name okay?
 const NavItem = ({ data, handleDelete, deckSelectionEvent }) => {
   return (
-    <div className={"border border-black p-5 m-5"}>
-      <br />
+    <div className={"flex justify-between p-4 hover:bg-secondary-dark rounded-4xl"}>
       {data.name}
-      <br />
       <MeatballMenu id={data.id}>
         <button
           onClick={() => handleDelete(data.id)}
@@ -27,4 +26,3 @@ const NavItem = ({ data, handleDelete, deckSelectionEvent }) => {
 };
 
 export default NavItem;
-

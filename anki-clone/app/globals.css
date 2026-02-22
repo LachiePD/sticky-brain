@@ -15,11 +15,8 @@
   }
 }
 @layer components {
-  .sidebar {
-    @apply bg-secondary min-w-[20em];
-  }
   .icon {
-    @apply hover:bg-secondary-dark w-[1.9em] h-[1.9em] rounded-full;
+    @apply bg-secondary hover:brightness-90 w-[1.9em] h-[1.9em] rounded-full;
   }
   .subheader {
     @apply text-2xl;

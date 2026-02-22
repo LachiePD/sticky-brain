@@ -16,10 +16,10 @@ const SideBar = () => {
     ));
   };
   return (
-    <div className={" sidebar"}>
+    <main className={" bg-secondary p-4 min-w-76"}>
       <Subheader>Library</Subheader>
       {renderDecks()}
-    </div>
+    </main>
   );
 };
 
