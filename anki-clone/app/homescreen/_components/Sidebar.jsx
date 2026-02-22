@@ -16,7 +16,7 @@ const SideBar = () => {
     ));
   };
   return (
-    <div className={" bg-secondary"}>
+    <div className={" sidebar"}>
       <Subheader>Library</Subheader>
       {renderDecks()}
     </div>
