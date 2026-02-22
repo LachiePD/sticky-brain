@@ -1,0 +1,27 @@
+-make deckList a context, selectedDeck and deckList are getting too hard to look at ✓
+-fix sidebar, give it normal colors, have it reach to end of the screen. ✓
+-title, center title. maybe put it in top right of the screen or top left. It doesnt need to take up the whole top of the screen.✓
+-remove the ContextProvider at the top of the app. I dont think I even use it , and its interfeering with doing the css of the app. ✓ 
+-remove borders around decks in the sidebar ✓
+-hide the buttons on DeckLink behind a meatball menu ✓
+-meatball menu needs an icon ✓
+-have library have a header, DECKLIST.✓ 
+-center the Creator component in homescreen ✓
+-change the fonts that is being used. ✓
+
+-/homescreen/page.js. Currently decides if it renders <Controller/> or <Creator/> , controller should do this.✗, problem was that the Controller was named incorrectly, now its DeckController. Creator and DeckController are concerned with different things
+
+
+-navItems in libarary need to be layed out properly, in column order.
+-navItems should have no border but onhover reacts
+-round the edges.
+
+
+refactor:
+-activeDeck() hook should become a context, then pull the selectedDeck functionality out of DeckListContext.
+-rename DeckListContext, perhaps pull the useDeckList() hook out of it and just reference that.
+
+feature
+-the main area. Currently defaults to create a deck. Have a think about this, it could be used to point user to select a deck.
+-needs responsiveness to jwt token expiring.
+
