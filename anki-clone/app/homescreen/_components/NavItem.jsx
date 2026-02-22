@@ -2,7 +2,6 @@ import MeatballMenu from "@/components/MeatballMenu/MeatballMenu.jsx";
 const NavItem = ({ data, handleDelete, deckSelectionEvent }) => {
   return (
     <div className={"border border-black p-5 m-5"}>
-      {data.id}
       <br />
       {data.name}
       <br />
