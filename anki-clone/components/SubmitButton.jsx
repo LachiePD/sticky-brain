@@ -4,7 +4,7 @@ const SubmitButton = ({onClick}) =>{
 
 return(
 <>
-	<button className = {'border border-green-200 w-fit'}
+	<button className = {'button'}
 	onClick={onClick}>
 	this is a submit button!
 	</button>

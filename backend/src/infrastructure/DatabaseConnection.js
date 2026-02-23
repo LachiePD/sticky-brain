@@ -6,9 +6,9 @@ class DatabaseConnection {
   constructor() {
     this.pool = new Pool({
       connectionString: process.env.CONNECTION_STRING,
- //     ssl: {
-   //     rejectUnauthorized: false,
-     // },//comment out ssl for docker container to work
+      //ssl: {
+        //rejectUnauthorized: false,
+      //},//comment out ssl for docker container to work
 	    connectionTimeoutMillis: 10000,
     });
   }

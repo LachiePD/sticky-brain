@@ -1,9 +1,8 @@
 const styles = {
-  card: `
-	bg-primary shadow-xl rounded-2xl   flex flex-col
+  card: `flex flex-col
+	bg-primary shadow-xl rounded-2xl
 	border border-secondary 
-	items-center
-	justify-center
+	p-8
 	`,
 };
 
