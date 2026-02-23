@@ -3,12 +3,12 @@ import { useActiveDeck } from "../providers/ActiveDeckProvider.jsx";
 
 export const Editor = ({ startPractice }) => {
 
-  const { cardList, handleNewFlashcard } = useActiveDeck();
+  const activeDeck = useActiveDeck();
 
   const [content, setContent] = useState({ front: "", back: "" });
 
   const handleSubmit = async () => {
-    const response = await handleNewFlashcard(content);
+    const response = await activeDeck.actions.handleNewFlashcard(content);
     setContent({ front: "", back: "" });
   };
 

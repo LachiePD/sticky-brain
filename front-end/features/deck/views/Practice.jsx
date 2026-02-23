@@ -1,9 +1,9 @@
-
-
-import {Flashcard, useFlashcard} from '@/features/flashcard/index.js';
+import { Flashcard, useFlashcard } from "@/features/flashcard/index.js";
+import {useActiveDeck} from '../providers/ActiveDeckProvider';
 //TODO Practice shouldnt want to use useFlashcard
-export const Practice = ({ cardList }) => {
-  const flashcardService = useFlashcard({ cardList });
+export const Practice = () => {
+  const activeDeck = useActiveDeck();
+  const flashcardService = useFlashcard({cardList: activeDeck.cardList});
 
   const chooseOutput = () => {
     if (flashcardService.isFinished) {
@@ -20,4 +20,3 @@ export const Practice = ({ cardList }) => {
   };
   return <>{chooseOutput()}</>;
 };
-

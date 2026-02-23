@@ -7,15 +7,14 @@ import { Editor } from "./Editor.jsx";
 import { Inspect } from "./Inspect.jsx";
 
 export const DeckController = () => {
-  const { selectedDeck } = useDeckList();
-  const activeDeck = useActiveDeck(selectedDeck);
+  const activeDeck = useActiveDeck();
   const mode = useDeckMode();
 
   const renderMode = () => {
     switch (mode.current) {
       case "practicing":
         return (
-          <Practice modeActions={mode.actions} cardList={activeDeck.cardList} />
+          <Practice modeActions={mode.actions}  />
         );
 
       case "editing":
@@ -23,7 +22,6 @@ export const DeckController = () => {
           <Editor
             handleNewFlashcard={activeDeck.handleNewcard}
             startPractice={mode.actions.startPractice}
-            cardList={activeDeck.cardList}
           />
         );
 
