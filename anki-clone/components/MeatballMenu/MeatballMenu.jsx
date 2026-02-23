@@ -7,6 +7,7 @@ const MeatBallMenu = ({ id, children }) => {
   const meatballService = useMeatball();
 //TODO clean up this rendering logic.
 	///TODO learn how ref works a bit better
+	//TODO ELLIPSIS component probably shouldnt have button behaviour
   return (
     <div id={id} ref={meatballService.menuRef}>
       {!meatballService.active && (
