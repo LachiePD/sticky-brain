@@ -1,17 +1,16 @@
 import { useState } from "react";
-import SubmitButton from "@/components/SubmitButton.jsx";
-import { useActiveDeck } from "./useActiveDeck.jsx";
+import { useActiveDeck } from "../hooks/useActiveDeck.jsx";
 
-const Editor = ({ startPractice }) => {
+export const Editor = ({ startPractice }) => {
+
   const { cardList, handleNewFlashcard } = useActiveDeck();
 
-  const [content, setContent] = useState({ front:"", back:"" });
+  const [content, setContent] = useState({ front: "", back: "" });
 
   const handleSubmit = async () => {
     const response = await handleNewFlashcard(content);
     setContent({ front: "", back: "" });
   };
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,7 +32,7 @@ const Editor = ({ startPractice }) => {
         onChange={handleChange}
       />
 
-      <SubmitButton onClick={handleSubmit} />
+      <button onClick={handleSubmit}>Submit</button>
 
       <br />
       <button onClick={startPractice}>Go to practice</button>
@@ -41,4 +40,3 @@ const Editor = ({ startPractice }) => {
   );
 };
 
-export default Editor;

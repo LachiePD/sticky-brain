@@ -1,12 +1,12 @@
 "use client";
-import { useDeckMode } from "./useDeckMode.jsx";
-import { useActiveDeck } from "./useActiveDeck.jsx";
-import { useDeckList } from "../DeckListContext.jsx";
-import Practice from "./Practice.jsx";
-import Editor from "./Editor.jsx";
-import Inspect from "./Inspect.jsx";
+import { useDeckMode } from "../hooks/useDeckMode.jsx";
+import { useActiveDeck } from "../hooks/useActiveDeck.jsx";
+import { useDeckList } from "../providers/DeckListContext.jsx";
+import { Practice } from "./Practice.jsx";
+import { Editor } from "./Editor.jsx";
+import { Inspect } from "./Inspect.jsx";
 
-const DeckController = () => {
+export const DeckController = () => {
   const { selectedDeck } = useDeckList();
   const activeDeck = useActiveDeck(selectedDeck);
   const mode = useDeckMode();
@@ -33,5 +33,3 @@ const DeckController = () => {
   };
   return <div>{renderMode()}</div>;
 };
-
-export default DeckController;

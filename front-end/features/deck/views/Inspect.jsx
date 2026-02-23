@@ -1,4 +1,5 @@
-const Inspect = ({ modeActions }) => {
+export const Inspect = ({ modeActions }) => {
+	
   return (
     <div>
       this is the inspect component
@@ -18,4 +19,3 @@ const Inspect = ({ modeActions }) => {
   );
 };
 
-export default Inspect;

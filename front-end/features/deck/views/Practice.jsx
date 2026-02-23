@@ -1,6 +1,8 @@
-import { useFlashcard } from "./useFlashcard.jsx";
-import Flashcard from "./Flashcard.jsx";
-const Practice = ({ cardList }) => {
+
+
+import {Flashcard, useFlashcard} from '@/features/flashcard/index.js';
+//TODO Practice shouldnt want to use useFlashcard
+export const Practice = ({ cardList }) => {
   const flashcardService = useFlashcard({ cardList });
 
   const chooseOutput = () => {
@@ -19,4 +21,3 @@ const Practice = ({ cardList }) => {
   return <>{chooseOutput()}</>;
 };
 
-export default Practice;
