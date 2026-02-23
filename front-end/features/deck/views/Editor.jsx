@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useActiveDeck } from "../hooks/useActiveDeck.jsx";
+import { useActiveDeck } from "../providers/ActiveDeckProvider.jsx";
 
 export const Editor = ({ startPractice }) => {
 

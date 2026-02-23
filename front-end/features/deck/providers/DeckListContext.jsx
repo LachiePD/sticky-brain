@@ -10,17 +10,10 @@ const DeckListContext = createContext();
 
 export const DeckListProvider = ({ children }) => {
   const [decks, setDecks] = useState([]);
-	//TODO remove this, and make useActiveDeck a context, so this logic can live there instead. 
-  const [selectedDeck, setSelectedDeck] = useState(null);
 
   useEffect(() => {
     fetchDecks();
   }, []);
-
-  const selectDeckById = (id) => {
-    const foundDeck = decks.find((deck) => deck.id === id);
-    setSelectedDeck(foundDeck);
-  };
 
   const createNewDeck = async (deckName) => {
     const response = await submitNewDeck(deckName);
@@ -35,7 +28,10 @@ export const DeckListProvider = ({ children }) => {
     }
     setDecks(data.response.rows);
   };
-
+  const findById = (id) => {
+    const foundDeck = decks.find((deck) => deck.id === id);
+    return foundDeck;
+  };
   const removeDeck = async (deckId) => {
     await removeDeckApi(deckId);
     setDecks((prev) => {
@@ -45,13 +41,12 @@ export const DeckListProvider = ({ children }) => {
 
   const value = {
     decks,
-    selectedDeck,
     actions: {
+      findById,
       fetchDecks,
       createNewDeck,
       removeDeck,
       setDecks,
-      selectDeckById,
     },
   };
   return (

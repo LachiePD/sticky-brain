@@ -1,16 +1,15 @@
 import NavItem from "./NavItem.jsx";
 import Subheader from "@/components/headers/Subheader.jsx";
-import { useDeckList } from "@/features/deck/index.js";
+import { useDeckList, useActiveDeck } from "@/features/deck/index.js";
 
 const SideBar = () => {
   const deckList = useDeckList();
-
-	//TODO this should be in useDeckList()
+  const activeDeck = useActiveDeck();
   const renderDecks = () => {
     return deckList.decks.map((deck) => (
       <li key={deck.id}>
         <NavItem
-          deckSelectionEvent={deckList.actions.selectDeckById}
+          deckSelectionEvent={()=>activeDeck.actions.selectDeckById(deck.id)}
           handleDelete={deckList.actions.removeDeck}
           deck={deck}
         />

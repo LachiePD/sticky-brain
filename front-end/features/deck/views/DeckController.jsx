@@ -1,6 +1,6 @@
 "use client";
 import { useDeckMode } from "../hooks/useDeckMode.jsx";
-import { useActiveDeck } from "../hooks/useActiveDeck.jsx";
+import { useActiveDeck } from "../providers/ActiveDeckProvider.jsx";
 import { useDeckList } from "../providers/DeckListContext.jsx";
 import { Practice } from "./Practice.jsx";
 import { Editor } from "./Editor.jsx";
