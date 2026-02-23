@@ -33,7 +33,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form className={" flex mx-auto gap-4"} onSubmit={(e) => handleSubmit(e)}>
+    <form className={" flex mx-auto gap-4 flex-col "} onSubmit={(e) => handleSubmit(e)}>
       <label>Username: </label>
       <input
         type="text"

@@ -4,11 +4,11 @@ import LoginForm from "@/app/login/LoginForm.jsx";
 
 const Page = () => {
   return (
-    <div className={"flex p-5 mx-auto"}>
-      <Card  header={"LOGIN"} >
-	  <LoginForm/>
-	  </Card>
-    </div>
+    <main className={"flex p-20 mx-auto"}>
+      <Card header={"LOGIN"} className={"flex-1 max-w-4xl"}>
+        <LoginForm />
+      </Card>
+    </main>
   );
 };
 
