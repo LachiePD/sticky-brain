@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 const inputStyle =
   "border border-gray-400 border-1 rounded shadow-sm resize-none";
 
-const CreateUserForm = () => {
+export const CreateUserForm = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
     userName: "",
@@ -64,4 +64,3 @@ const CreateUserForm = () => {
   );
 };
 
-export default CreateUserForm;

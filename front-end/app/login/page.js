@@ -1,6 +1,6 @@
 "use client";
-import Card from "@/components/Card.jsx";
-import LoginForm from "@/app/login/LoginForm.jsx";
+import Card from "@/components/ui/Card.jsx";
+import {LoginForm } from "@/features/forms/index.js";
 
 const Page = () => {
   return (

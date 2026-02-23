@@ -14,8 +14,9 @@
 -navItems should have no border but onhover reacts✓
 -round the edges for NavItems. ✓
 -<Creator/>  has 2 card components, rendering.✓
+-create directives for buttons✓
 
--create directives for buttons
+
 -<Creator input needs to be positioned properly at bottom of parent.
 -Input needs to bemore obvious, currently too hard to tell what its meant to do
 -selectedDeck needs to become a context, this will allow the sidebar to interact with it correctly, and allow creating a new deck event to come from sidebar and stage

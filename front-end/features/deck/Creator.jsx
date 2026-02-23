@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { useDeckList } from "../DeckListContext.jsx";
+import { useDeckList } from "./providers/DeckListContext.jsx";
+import Card from "@/components/ui/Card.jsx";
 
-import Card from "@/components/Card.jsx";
-const Creator = ({ createNewDeck }) => {
+export const Creator = ({ createNewDeck }) => {
   const [deckName, setDeckName] = useState("");
   const deckList = useDeckList();
 
@@ -34,4 +34,3 @@ const Creator = ({ createNewDeck }) => {
   );
 };
 
-export default Creator;

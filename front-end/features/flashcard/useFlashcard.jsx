@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {useDeckList} from '../DeckListContext.jsx';
+import {useDeckList} from '@/features/deck/index.js'
 export const useFlashcard = ({ cardList = [] }) => {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const [content, setContent] = useState({ front: "", back: "" });

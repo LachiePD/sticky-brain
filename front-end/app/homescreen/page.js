@@ -1,9 +1,7 @@
 "use client";
-import { useDeckList } from "./DeckListContext.jsx";
-import Card from "@/components/Card.jsx";
-import SideBar from "./_components/Sidebar.jsx";
-import Creator from "./_components/Creator.jsx";
-import DeckController from "./Views/DeckController.jsx";
+import { useDeckList, Creator, DeckController } from "@/features/deck/index.js";
+import Card from "@/components/ui/Card.jsx";
+import SideBar from "@/features/Sidebar.jsx";
 
 const page = () => {
   const deckList = useDeckList();
@@ -17,7 +15,7 @@ const page = () => {
         </header>
         <div className={"flex-1 flex justify-center  px-40 "}>
           <Card className={"flex-1"}>
-		//TODO look at simplifying this, selectedDeck should have different naming if its being used as a conditional
+            {/*	//TODO look at simplifying this, selectedDeck should have different naming if its being used as a conditional*/}
             {deckList.selectedDeck ? (
               <DeckController key={deckList.selectedDeck.id} />
             ) : (

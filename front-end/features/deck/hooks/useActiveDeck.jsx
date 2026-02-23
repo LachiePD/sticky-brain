@@ -1,6 +1,7 @@
+'use client';
 import { fetchByDeck, createNewCard } from "@/api/card.api.js";
 import { useState, useEffect, useCallback } from "react";
-import { useDeckList } from "../DeckListContext.jsx";
+import { useDeckList } from "../providers/DeckListContext.jsx";
 
 export const useActiveDeck = () => {
 

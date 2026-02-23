@@ -1,13 +1,12 @@
 "use client";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import { useMeatball } from "./useMeatball.jsx";
-import List from './List.jsx';
+import List from "@/components/ui/List.jsx";
 
-const MeatBallMenu = ({ id, children }) => {
+export const MeatballMenu = ({ id, children }) => {
   const meatballService = useMeatball();
-//TODO clean up this rendering logic.
-	///TODO learn how ref works a bit better
-	//TODO ELLIPSIS component probably shouldnt have button behaviour
+  //TODO clean up this rendering logic.
+  //TODO ELLIPSIS component probably shouldnt have button behaviour
   return (
     <div id={id} ref={meatballService.menuRef}>
       {!meatballService.active && (
@@ -16,10 +15,8 @@ const MeatBallMenu = ({ id, children }) => {
           className={"icon"}
         />
       )}
-
+      //TODO list should be the children
       {meatballService.active && <List>{children}</List>}
     </div>
   );
 };
-
-export default MeatBallMenu;

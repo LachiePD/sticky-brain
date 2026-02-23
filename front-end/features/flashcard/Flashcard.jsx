@@ -1,4 +1,4 @@
-const Flashcard = ({ content, isRevealed, actions }) => {
+export const Flashcard = ({ content, isRevealed, actions }) => {
   const renderRevealed = () => {
     return (
       <>
@@ -21,4 +21,3 @@ const Flashcard = ({ content, isRevealed, actions }) => {
   );
 };
 
-export default Flashcard;

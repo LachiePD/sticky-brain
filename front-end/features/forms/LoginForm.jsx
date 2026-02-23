@@ -1,8 +1,11 @@
+
+
 import { attemptLogin } from "@/api/auth/auth.js";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const LoginForm = () => {
+export const LoginForm = () => {
+
   const [formData, setFormData] = useState({ userName: "", password: "" });
   const router = useRouter();
 
@@ -49,4 +52,3 @@ const LoginForm = () => {
     </form>
   );
 };
-export default LoginForm;

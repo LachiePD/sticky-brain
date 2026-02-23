@@ -1,7 +1,7 @@
 import NavItem from "./NavItem.jsx";
 import Subheader from "@/components/headers/Subheader.jsx";
+import { useDeckList } from "@/features/deck/index.js";
 
-import { useDeckList } from "../DeckListContext.jsx";
 const SideBar = () => {
   const deckList = useDeckList();
 
