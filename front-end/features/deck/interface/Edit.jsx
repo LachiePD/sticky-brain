@@ -7,7 +7,7 @@ export const Edit = () => {
     <>
       {!addingCard && (
         <>
-          <button onClick={setAddingCard(true)}>Add Card</button>
+          <button onClick={() => setAddingCard(true)}>Add Card</button>
           <button>Change Deck Name</button>
         </>
       )}
