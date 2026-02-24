@@ -11,7 +11,8 @@ export const Creator = ({ createNewDeck }) => {
     setDeckName(e.target.value);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     await deckList.actions.createNewDeck(deckName);
     setDeckName("");
   };
