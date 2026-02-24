@@ -7,8 +7,8 @@ export const useFlashcard = () => {
   const [isRevealed, setRevealed] = useState(false);
 
   const nextCard = () => {
-    const card = activeDeck.actions.drawNextCard();
-    setContent({ front: card.front, back: card.back });
+    const { front, back } = activeDeck.actions.drawNextCard();
+    setContent({ front, back });
   };
   useEffect(() => {
     nextCard();
