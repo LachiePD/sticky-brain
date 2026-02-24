@@ -18,7 +18,11 @@ export const ActiveCardProvider = ({ children }) => {
   }, [activeDeck.cardList]);
 
   const nextCard = () => {
-    const { front, back } = activeDeck.actions.drawNextCard();
+    const card = activeDeck.actions.drawNextCard();
+    if (card === null) {
+      return;
+    }
+    const { front, back } = card;
     setContent({ front, back });
   };
 

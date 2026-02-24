@@ -37,8 +37,8 @@ export const ActiveDeckProvider = ({ children }) => {
   };
 
   const drawNextCard = () => {
-    if (emptyList()) {
-      return;
+    if (isFinished()) {
+      return null;
     } else {
       const newIndex = cardIndex + 1;
       setCardIndex(newIndex);
@@ -46,8 +46,9 @@ export const ActiveDeckProvider = ({ children }) => {
     }
   };
 
-  const emptyList = () => {
+  const isFinished = () => {
     if (cardIndex + 1 >= cardList.length) {
+      mode.actions.setFinished();
       return true;
     } else {
       return false;
