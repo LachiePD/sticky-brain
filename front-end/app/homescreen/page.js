@@ -1,5 +1,5 @@
 "use client";
-import { useActiveDeck,  DeckController , Stage} from "@/features/deck/index.js";
+import { useActiveDeck,  DeckController , Stage, Interface} from "@/features/deck/index.js";
 import {Card} from "@/components/ui/Card.jsx";
 import SideBar from "@/features/Sidebar.jsx";
 
@@ -16,14 +16,11 @@ const page = () => {
         <header className={"min-h-24"}>
           <h1 className={"text-3xl "}>my sticky brain :)</h1>
         </header>
-        <Card className={"flex-row  items-end"}>
-          {activeDeck.deckId ? (
-            <DeckController key={activeDeck.deckId} />
-          ) : (
-            <Creator />
-          )}
-        </Card>
 		<Stage/>
+
+		<Interface/>
+		//TODO this needs to become interface
+        
       </section>
     </main>
   );
