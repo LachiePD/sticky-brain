@@ -4,7 +4,7 @@ import { useActiveDeck } from "../providers/ActiveDeckProvider";
 import { Practice } from "./Practice";
 import { Edit } from "./Edit";
 import { ModeMenu } from "./ModeMenu";
-export const Interface = ({ activeCard }) => {
+export const Interface = () => {
   const activeDeck = useActiveDeck();
 
   const decideOutput = () => {
@@ -12,7 +12,7 @@ export const Interface = ({ activeCard }) => {
       case "inspecting":
         return <ModeMenu />;
       case "practicing":
-        return <Practice activeCard={activeCard} />;
+        return <Practice />;
       case "editing":
         return <Edit />;
     }

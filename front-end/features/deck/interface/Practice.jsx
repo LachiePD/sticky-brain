@@ -1,4 +1,6 @@
-export const Practice = ({ activeCard }) => {
+import { useActiveCard } from "@/features/flashcard/index";
+
+export const Practice = () => {
   return (
     <>
       <button onClick={activeCard.toggleRevealed}>Try Again</button>
