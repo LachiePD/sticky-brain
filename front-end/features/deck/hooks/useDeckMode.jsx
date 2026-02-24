@@ -8,6 +8,7 @@ export const useDeckMode = () => {
   const startPractice = () => setCurrentMode("practicing");
   const startEditing = () => setCurrentMode("editing");
   const startInspecting = () => setCurrentMode("inspecting");
+  const setFinished = () => setCurrentMode("finished");
 
   return {
     currentMode,
@@ -15,6 +16,7 @@ export const useDeckMode = () => {
       startPractice,
       startEditing,
       startInspecting,
+      setFinished,
     },
   };
 };
