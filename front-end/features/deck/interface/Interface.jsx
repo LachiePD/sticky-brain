@@ -21,6 +21,15 @@ export const Interface = ({ activeCard }) => {
       </>
     );
   };
+  const decideOutput = () => {
+    console.log(activeDeck.mode.currentMode);
+    switch (activeDeck.mode.currentMode) {
+      case "inspecting":
+        return modeMenu();
+      case "practice":
+        return <Practice />;
+    }
+  };
   const chooseOutput = () => {
     if (activeDeck.mode.currentMode === "practice") {
       return <Practice />;
@@ -31,7 +40,7 @@ export const Interface = ({ activeCard }) => {
     <Card className={"flex-row  items-end"}>
       {!activeDeck.deckId && <Creator />}
 
-      {activeDeck.deckId && modeMenu()}
+      {activeDeck.deckId && decideOutput()}
     </Card>
   );
 };
