@@ -1,9 +1,9 @@
 import { useActiveCard } from "@/features/flashcard/index";
-
+import { useActiveDeck } from "@/features/deck/index";
 export const Practice = () => {
   const activeCard = useActiveCard();
+  const activeDeck = useActiveDeck();
 
-  console.log(activeCard.isRevealed);
   if (activeCard.isRevealed) {
     return (
       <>

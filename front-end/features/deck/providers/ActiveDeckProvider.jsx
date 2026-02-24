@@ -37,14 +37,22 @@ export const ActiveDeckProvider = ({ children }) => {
   };
 
   const drawNextCard = () => {
-    if (listIsEmpty()) {
+    if (emptyList()) {
       return;
+    } else {
+      const newIndex = cardIndex + 1;
+      setCardIndex(newIndex);
+      return cardList[newIndex];
     }
-    const newIndex = cardIndex + 1;
-    setIndex(newIndex);
-    return cardList[newIndex];
   };
 
+  const emptyList = () => {
+    if (cardIndex + 1 >= cardList.length) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   const fetchCard = () => {
     if (cardList.length === 0) {
       return;

@@ -17,11 +17,16 @@ export const ActiveCardProvider = ({ children }) => {
     setContent({ front, back });
   }, [activeDeck.cardList]);
 
+  const nextCard = () => {
+    const { front, back } = activeDeck.actions.drawNextCard();
+    setContent({ front, back });
+  };
+
   const toggleRevealed = () => {
     setRevealed((prev) => !prev);
   };
 
-  const value = { content, isRevealed, toggleRevealed };
+  const value = { content, isRevealed, toggleRevealed, nextCard };
 
   return (
     <ActiveCardContext.Provider value={value}>
