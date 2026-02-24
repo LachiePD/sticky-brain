@@ -10,7 +10,7 @@ export const Interface = ({ activeCard }) => {
     switch (activeDeck.mode.currentMode) {
       case "inspecting":
         return <ModeMenu />;
-      case "practice":
+      case "practicing":
         return <Practice activeCard={activeCard} />;
     }
   };
