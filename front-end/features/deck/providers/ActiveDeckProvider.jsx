@@ -37,6 +37,7 @@ export const ActiveDeckProvider = ({ children }) => {
     setCardIndex((prev) => prev + 1);
     return card;
   };
+
   const value = {
     mode,
     cardList,
