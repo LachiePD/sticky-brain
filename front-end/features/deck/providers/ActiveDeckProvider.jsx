@@ -32,12 +32,35 @@ export const ActiveDeckProvider = ({ children }) => {
     fetchCards();
   };
 
+  const listIsEmpty = () => {
+    if (cardList.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   const drawNextCard = () => {
+    if (listIsEmpty()) {
+      return;
+    }
+    incrementIndex();
     const card = cardList[cardIndex];
-    setCardIndex((prev) => prev + 1);
     return card;
   };
 
+  const incrementIndex = () => {
+    if (cardIndex + 1 === cardList.length) {
+      mode.actions.setFinished();
+      return;
+    }
+    setCardIndex((prev) => prev + 1);
+  };
+  const fetchCard = () => {
+    if (listIsEmpty()) {
+      return;
+    }
+    return cardList[cardIndex];
+  };
   const value = {
     mode,
     cardList,
@@ -46,6 +69,7 @@ export const ActiveDeckProvider = ({ children }) => {
       selectDeckById,
       handleNewFlashcard,
       drawNextCard,
+      fetchCard,
     },
   };
 
