@@ -9,7 +9,6 @@ import { Card } from "@/components/ui/Card.jsx";
 import SideBar from "@/features/Sidebar.jsx";
 
 const page = () => {
-  const activeDeck = useActiveDeck();
   return (
     <main className={"flex w-full"}>
       <SideBar />
