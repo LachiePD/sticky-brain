@@ -3,7 +3,6 @@ import { Flashcard } from "@/features/flashcard/index.js";
 export const Practice = () => {
   return (
     <>
-      hi
       <Flashcard />
     </>
   );
