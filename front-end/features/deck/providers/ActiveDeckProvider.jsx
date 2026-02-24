@@ -18,6 +18,7 @@ export const ActiveDeckProvider = ({ children }) => {
       setCardIndex(0);
       fetchCards();
     }
+    mode.actions.startInspecting();
   }, [deckId]);
 
   const fetchCards = async () => {
@@ -25,7 +26,6 @@ export const ActiveDeckProvider = ({ children }) => {
     setCardList(data.cards);
   };
 
-  //TODO this is wrong it feels like. This stream shouldnt try to populate itsself, should it?
   const selectDeckById = (id) => {
     const deck = deckList.actions.findById(id);
     setDeckId(deck.id);
@@ -36,31 +36,17 @@ export const ActiveDeckProvider = ({ children }) => {
     fetchCards();
   };
 
-  const listIsEmpty = () => {
-    if (cardList.length === 0) {
-      return true;
-    } else {
-      return false;
-    }
-  };
   const drawNextCard = () => {
     if (listIsEmpty()) {
       return;
     }
-    incrementIndex();
-    const card = cardList[cardIndex];
-    return card;
+    const newIndex = cardIndex + 1;
+    setIndex(newIndex);
+    return cardList[newIndex];
   };
 
-  const incrementIndex = () => {
-    if (cardIndex + 1 === cardList.length) {
-      mode.actions.setFinished();
-      return;
-    }
-    setCardIndex((prev) => prev + 1);
-  };
   const fetchCard = () => {
-    if (listIsEmpty()) {
+    if (cardList.length === 0) {
       return;
     }
     return cardList[cardIndex];
