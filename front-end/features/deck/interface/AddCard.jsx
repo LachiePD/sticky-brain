@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useActiveDeck } from "../providers/ActiveDeckProvider";
-export const AddCard = () => {
+export const AddCard = ({ toggleAddingCard }) => {
   const [content, setContent] = useState({ front: "", back: "" });
   const activeDeck = useActiveDeck();
 
@@ -11,7 +11,8 @@ export const AddCard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    activeDeck.handleNewFlashCard(content);
+    activeDeck.actions.handleNewFlashcard(content);
+    toggleAddingCard();
   };
   return (
     <form>
