@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/Card";
 import { useActiveDeck } from "./providers/ActiveDeckProvider";
 import { Inspect } from "./views/Inspect";
 import { Practice } from "./views/Practice";
-export const Stage = () => {
+export const Stage = ({ activeCard }) => {
   const activeDeck = useActiveDeck();
 
   const renderMode = () => {

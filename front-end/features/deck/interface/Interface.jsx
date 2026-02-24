@@ -1,11 +1,9 @@
 import { Card } from "@/components/ui/Card";
 import { Creator } from "./Creator";
-import { useFlashcard } from "@/features/flashcard/index";
 import { useActiveDeck } from "../providers/ActiveDeckProvider";
 import { Practice } from "./Practice";
-export const Interface = () => {
+export const Interface = ({ activeCard }) => {
   const activeDeck = useActiveDeck();
-  const flashcard = useFlashcard();
 
   const modeMenu = () => {
     return (
