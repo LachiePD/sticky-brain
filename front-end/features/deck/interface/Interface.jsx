@@ -14,11 +14,6 @@ export const Interface = ({ activeCard }) => {
         return <Practice />;
     }
   };
-  const chooseOutput = () => {
-    if (activeDeck.mode.currentMode === "practice") {
-      return <Practice />;
-    }
-  };
 
   return (
     <Card className={"flex-row  items-end"}>
