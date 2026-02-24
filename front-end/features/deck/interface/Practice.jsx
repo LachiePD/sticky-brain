@@ -1,4 +1,4 @@
-export const Practice = () => {
+export const Practice = ({ activeCard }) => {
   return (
     <>
       <button onClick={card.toggleRevealed}>Try Again</button>

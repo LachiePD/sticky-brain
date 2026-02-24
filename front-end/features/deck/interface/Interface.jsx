@@ -11,7 +11,7 @@ export const Interface = ({ activeCard }) => {
       case "inspecting":
         return <ModeMenu />;
       case "practice":
-        return <Practice />;
+        return <Practice activeCard={activeCard} />;
     }
   };
 
