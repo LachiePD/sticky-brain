@@ -2,6 +2,8 @@ import { Card } from "@/components/ui/Card";
 import { useActiveDeck } from "../providers/ActiveDeckProvider";
 import { Inspect } from "./views/Inspect";
 import { Practice } from "./views/Practice";
+import { Edit } from "./views/Edit";
+
 export const Stage = ({ activeCard }) => {
   const activeDeck = useActiveDeck();
 
@@ -11,7 +13,7 @@ export const Stage = ({ activeCard }) => {
         return <Practice />;
 
       case "editing":
-        return <p>"We are Editing"</p>;
+        return <Edit />;
 
       case "inspecting":
         return <Inspect />;
