@@ -1,23 +1,24 @@
-export const Flashcard = ({ content, isRevealed, actions }) => {
+import { useFlashcard } from "./useFlashcard";
+export const Flashcard = () => {
+  const card = useFlashcard();
   const renderRevealed = () => {
     return (
       <>
-        ANSWER: {content.back}
+        ANSWER: {card.content.back}
         <br />
-        <button onClick={actions.toggleRevealed}>Try Again</button>
+        <button onClick={card.toggleRevealed}>Try Again</button>
         <br />
-        <button onClick={actions.nextCard}> Correct! </button>
+        <button onClick={card.nextCard}> Correct! </button>
       </>
     );
   };
   return (
     <>
-      QUESTION: {content.front}
+      QUESTION: {card.content.front}
       <br />
-      <button onClick={actions.toggleRevealed}>Show Answer</button>
+      <button onClick={card.toggleRevealed}>Show Answer</button>
       <br />
-      {isRevealed && renderRevealed()}
+      {card.isRevealed && renderRevealed()}
     </>
   );
 };
-
