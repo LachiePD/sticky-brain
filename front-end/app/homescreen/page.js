@@ -19,7 +19,6 @@ const page = () => {
 		<Stage/>
 
 		<Interface/>
-		//TODO this needs to become interface
         
       </section>
     </main>
