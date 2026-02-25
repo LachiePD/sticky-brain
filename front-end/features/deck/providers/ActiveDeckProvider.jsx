@@ -1,8 +1,8 @@
 "use client";
 import { useContext, createContext, useState, useEffect } from "react";
-import { fetchByDeck, createNewCard } from "@/api/card.api.js";
 import { useDeckList } from "./DeckListContext.jsx";
 import { useDeckMode } from "../hooks/useDeckMode";
+import { useApi } from "@/features/api/index";
 const ActiveDeckContext = createContext();
 
 export const ActiveDeckProvider = ({ children }) => {
@@ -11,6 +11,7 @@ export const ActiveDeckProvider = ({ children }) => {
   const [cardIndex, setCardIndex] = useState(0);
   const deckList = useDeckList();
   const mode = useDeckMode();
+  const api = useApi();
 
   useEffect(() => {
     if (!deckId) return;
@@ -19,7 +20,7 @@ export const ActiveDeckProvider = ({ children }) => {
   }, [deckId]);
 
   const fetchCards = async () => {
-    const data = await fetchByDeck(deckId);
+    const data = await auth.card.fetchByDeck(deckId);
     setCardList(data.cards);
   };
 
@@ -29,7 +30,7 @@ export const ActiveDeckProvider = ({ children }) => {
   };
 
   const handleNewFlashcard = async (card) => {
-    await createNewCard(deckId, card);
+    await api.card.createNewCard(deckId, card);
     fetchCards();
   };
 
