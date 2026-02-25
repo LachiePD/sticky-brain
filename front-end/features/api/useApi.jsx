@@ -8,7 +8,7 @@ export const useApi = () => {
   const wrap =
     (func) =>
     async (...args) => {
-      const data = await func(...args, token);
+      const data = await func(...args);
       if (data?.status === 401) logout();
       return data;
     };
