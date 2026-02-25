@@ -4,7 +4,6 @@ import { card } from "./card.api.js";
 import { deck } from "./deck.api.js";
 
 export const useApi = () => {
-  const { token, logout } = useAuth();
   //TODO deal with expired jwt here
   const wrap =
     (func) =>
