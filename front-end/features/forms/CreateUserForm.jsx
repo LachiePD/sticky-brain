@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { createUser } from "@/api/user/user.js";
 import { useRouter } from "next/navigation";
+import { useApi } from "/features/api/index";
 
 const inputStyle =
   "border border-gray-400 border-1 rounded shadow-sm resize-none";
@@ -20,9 +20,13 @@ export const CreateUserForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  //TODO , assert data for second password= first password
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await createUser({userName: formData.userName,password: formData.password});
+    const result = await useApi.createUser({
+      userName: formData.userName,
+      password: formData.password,
+    });
 
     if (result.status !== 200) {
       console.log("Create user failed");
@@ -35,27 +39,27 @@ export const CreateUserForm = () => {
   return (
     <form
       className={"flex flex-col gap-4 items-center"}
-      onSubmit={ handleSubmit}
+      onSubmit={handleSubmit}
     >
       <input
         name={"userName"}
         className={inputStyle}
         placeholder={"Enter your username"}
-        onChange={ handleChange}
+        onChange={handleChange}
       />
       <input
         name={"password"}
         className={inputStyle}
         placeholder={"Enter your password"}
         type={"password"}
-        onChange={ handleChange}
+        onChange={handleChange}
       />
       <input
         name={"secondPassword"}
         className={inputStyle}
         placeholder={"Enter password again"}
         type={"password"}
-        onChange={ handleChange}
+        onChange={handleChange}
       />
       <button className={"button"} type={"submit"}>
         Create User
@@ -63,4 +67,3 @@ export const CreateUserForm = () => {
     </form>
   );
 };
-
