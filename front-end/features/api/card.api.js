@@ -1,5 +1,3 @@
-import { MOCK_CARDS } from "./mockData.js";
-
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const fetchByDeck = async (id) => {
