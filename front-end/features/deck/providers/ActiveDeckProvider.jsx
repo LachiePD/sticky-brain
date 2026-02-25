@@ -20,7 +20,7 @@ export const ActiveDeckProvider = ({ children }) => {
   }, [deckId]);
 
   const fetchCards = async () => {
-    const data = await auth.card.fetchByDeck(deckId);
+    const data = await api.card.fetchByDeck(deckId);
     setCardList(data.cards);
   };
 
