@@ -18,7 +18,7 @@ export const submitNewDeck = async (deckName) => {
   return data;
 };
 
-export const getDecks = async () => {
+export const getAll = async () => {
   const result = await fetch(`${apiUrl}/getAllDecks`, {
     method: "GET",
     credentials: "include",
