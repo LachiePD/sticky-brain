@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useApi } from "/features/api/index";
+import { useApi } from "@/features/api/index";
 
 const inputStyle =
   "border border-gray-400 border-1 rounded shadow-sm resize-none";
@@ -24,7 +24,7 @@ export const CreateUserForm = () => {
   //TODO , assert data for second password= first password
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await api.createUser({
+    const result = await api.auth.createUser({
       userName: formData.userName,
       password: formData.password,
     });
