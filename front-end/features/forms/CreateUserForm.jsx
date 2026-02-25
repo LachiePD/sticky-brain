@@ -8,6 +8,7 @@ const inputStyle =
   "border border-gray-400 border-1 rounded shadow-sm resize-none";
 
 export const CreateUserForm = () => {
+  const api = useApi();
   const router = useRouter();
   const [formData, setFormData] = useState({
     userName: "",
@@ -23,7 +24,7 @@ export const CreateUserForm = () => {
   //TODO , assert data for second password= first password
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await useApi.createUser({
+    const result = await api.createUser({
       userName: formData.userName,
       password: formData.password,
     });
