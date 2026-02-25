@@ -1,5 +1,4 @@
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-import { MOCK_DECKS } from "../mockData.js";
 export const submitNewDeck = async (deckName) => {
   const response = await fetch(`${apiUrl}/createdeck`, {
     method: "POST",
