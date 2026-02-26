@@ -4,14 +4,18 @@ import { card } from "./card.api.js";
 import { deck } from "./deck.api.js";
 
 export const useApi = () => {
-  //TODO deal with expired jwt here
-  const wrap =
-    (func) =>
-    async (...args) => {
+  const wrap = (func) => {
+    return async (...args) => {
       const data = await func(...args);
-      if (data?.status === 401) logout();
+      if (data.code === 401) {
+        if (data.error === "TokenExpiredError") {
+          return;
+        }
+        console.log("data error");
+      }
       return data;
     };
+  };
 
   return {
     auth: {
