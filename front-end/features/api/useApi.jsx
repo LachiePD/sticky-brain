@@ -1,18 +1,18 @@
-import { useState } from "react";
 import { auth } from "./auth.api.js";
 import { card } from "./card.api.js";
 import { deck } from "./deck.api.js";
-
+import { useAuth } from "@/features/auth/index";
 export const useApi = () => {
+  const auth = useAuth();
   const wrap =
     (func) =>
     async (...args) => {
       const data = await func(...args);
       if (data.code === 401) {
         if (data.error === "TokenExpiredError") {
+          auth.actions.revokeAccess({ reason: "jwtExpired" });
           return;
         }
-        console.log("data error");
       }
       return data;
     };
