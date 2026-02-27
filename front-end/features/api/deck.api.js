@@ -1,42 +1,32 @@
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-export const submitNewDeck = async (deckName) => {
-  const response = await fetch(`${apiUrl}/createdeck`, {
-    method: "POST",
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ deckName }),
-  });
-  const data = await response.json();
-  return data;
-};
-
-export const getDecks = async () => {
-  const result = await fetch(`${apiUrl}/getAllDecks`, {
-    method: "GET",
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  const data = await result.json();
-  return data;
-};
-export const removeDeck = async (deckId) => {
-  const result = await fetch(
-    `${apiUrl}/removeDeck/${encodeURIComponent(deckId)}`,
-    {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
+const routeFactory =
+  ({ route, method }) =>
+  async (payload) => {
+    const options = {
+      headers: { "Content-Type": "application/json" },
       credentials: "include",
-    },
-  );
-  const data = await result.json();
-  return data;
-};
-export const deck = { removeDeck, getDecks, submitNewDeck };
+      method,
+    };
+
+    if (method !== "GET" && payload) {
+      options.body = JSON.stringify(payload);
+    }
+    const response = await fetch(route, options);
+    const data = await response.json();
+    return { ...data, status: response.status };
+  };
+
+export const getDecks = routeFactory({
+  route: `${apiUrl}/getAllDecks`,
+  method: "GET",
+});
+export const createDeck = routeFactory({
+  route: `${apiUrl}/createdeck`,
+  method: "GET",
+});
+
+export const removeDeck = routeFactory({
+  route: `${apiUrl}/removeDeck/${encodeURIComponent(deckId)}`,
+  method: "DELETE",
+});
