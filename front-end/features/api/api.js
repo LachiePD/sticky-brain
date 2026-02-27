@@ -17,7 +17,16 @@ const routeFactory =
     return { ...data, status: response.status };
   };
 
-export const getDeck = routeFactory({
+export const getDecks = routeFactory({
   route: `${apiUrl}/getAllDecks`,
   method: "GET",
+});
+export const createDeck = routeFactory({
+  route: `${apiUrl}/createdeck`,
+  method: "GET",
+});
+
+export const removeDeck = routeFactory({
+  route: `${apiUrl}/removeDeck/${encodeURIComponent(deckId)}`,
+  method: "DELETE",
 });
