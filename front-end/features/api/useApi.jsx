@@ -8,11 +8,13 @@ export const useApi = () => {
     (func) =>
     async (...args) => {
       const data = await func(...args);
-      if (data.code === 401) {
+      if (data.status !== 200) {
         if (data.error === "TokenExpiredError") {
           authContext.actions.revokeAccess({ reason: "jwtExpired" });
           return;
         }
+        console.log("ERROR:  ", JSON.stringify(data));
+        return;
       }
       return data;
     };

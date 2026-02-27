@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useApi } from "@/features/api/useApi";
+import { useAuth } from "@/features/auth/index";
 
 export const LoginForm = () => {
+  const authContext = useAuth();
   const api = useApi();
   const [formData, setFormData] = useState({ userName: "", password: "" });
   const router = useRouter();
@@ -20,10 +22,7 @@ export const LoginForm = () => {
       password: formData.password,
     });
 
-    if (result.status !== 200) {
-      throw new Error();
-      return;
-    }
+    authContext.actions.login();
     router.push("/homescreen");
   };
 

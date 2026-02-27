@@ -23,7 +23,8 @@ export const AuthProvider = ({ children }) => {
     setAccess({ isAllowed: false, restriction: reason });
   };
 
-  const value = { actions: { revokeAccess } };
+  const login = () => setAccess({ isAllowed: true, restriction: null });
+  const value = { actions: { revokeAccess, login } };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
