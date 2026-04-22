@@ -1,7 +1,7 @@
 import { NavItem } from "./NavItem.jsx";
 import { Subheader } from "@/components/index.mjs";
 import { useDeckList, useActiveDeck } from "@/providers/index.mjs";
-import { HamburgerBar } from "./HamburgerBar.jsx";
+import { HamburgerBar } from "./hamburgerbar/HamburgerBar.jsx";
 import { useSidebar } from "./useSidebar";
 export const Sidebar = () => {
   const deckList = useDeckList();
