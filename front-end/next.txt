@@ -1,5 +1,3 @@
-add a button to go 'back' in the interface, currently you either need to select a new deck or refresh completely to go to create a deck.
+there is a stale state bug when creating a new deck, the sidebar isnt getting updated properly.
 
-look into tan-stack query. currently , the deckList context is handling the tech debt, but it adds a lot of complexity, it should be removed and everything relies on api calls. but in order to have components refresh , the context is currently there. tan stack-query apparently will fix this issue
-
-a HOF necessary in the api calls, to handle optimistic updating
+the Interface seems to be changing size on every mode its in, it should always just want to take up maximum space
