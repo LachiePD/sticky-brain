@@ -18,7 +18,7 @@ export const Sidebar = () => {
   };
   return (
     <>
-      <HamburgerBar handleClick={toggleVisible} />
+      <HamburgerBar className={"p-4"} handleClick={toggleVisible} />
 
       <nav
         className={`
