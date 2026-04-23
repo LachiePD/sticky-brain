@@ -13,16 +13,11 @@ export const DeckListProvider = ({ children }) => {
     fetchDecks();
   }, []);
 
-  const createDeck = (deckName) => {
+  const createDeck = async (deckName) => {
     const newDeckList = [...decks, deckName];
     const oldDeckList = decks;
     const payload = { deckName };
-    const response = api.deck.createDeck(
-      payload,
-      oldDeckList,
-      newDeckList,
-      setDecks,
-    );
+    await api.deck.createDeck(payload, oldDeckList, newDeckList, setDecks);
     fetchDecks();
   };
 
