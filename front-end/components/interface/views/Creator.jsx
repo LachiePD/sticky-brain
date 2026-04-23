@@ -17,14 +17,14 @@ export const Creator = ({ createNewDeck }) => {
     setDeckName("");
   };
   return (
-    <form>
+    <form className={"flex flex-col gap-2"}>
       <textarea
         className={"resize-none"}
         onChange={handleChange}
         placeholder={"name of deck..."}
         value={deckName}
       />
-      <button type={"submit"} onClick={handleSubmit} className={"button"}>
+      <button type={"submit"} onClick={handleSubmit}>
         Create Deck!
       </button>
     </form>
