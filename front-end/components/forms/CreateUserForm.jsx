@@ -4,9 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useApi } from "@/providers/index.mjs";
 
-const inputStyle =
-  "border border-gray-400 border-1 rounded shadow-sm resize-none";
-
 export const CreateUserForm = () => {
   const api = useApi();
   const router = useRouter();
@@ -44,20 +41,17 @@ export const CreateUserForm = () => {
     >
       <input
         name={"userName"}
-        className={inputStyle}
         placeholder={"Enter your username"}
         onChange={handleChange}
       />
       <input
         name={"password"}
-        className={inputStyle}
         placeholder={"Enter your password"}
         type={"password"}
         onChange={handleChange}
       />
       <input
         name={"secondPassword"}
-        className={inputStyle}
         placeholder={"Enter password again"}
         type={"password"}
         onChange={handleChange}

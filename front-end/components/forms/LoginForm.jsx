@@ -30,7 +30,6 @@ export const LoginForm = () => {
       <input
         name="userName"
         type="text"
-        className={"border-2"}
         onChange={handleChange}
       />
 
@@ -38,7 +37,6 @@ export const LoginForm = () => {
       <input
         name="password"
         type="password"
-        className={"border-2"}
         onChange={handleChange}
       />
 

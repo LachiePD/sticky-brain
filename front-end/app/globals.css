@@ -14,7 +14,10 @@
     font-size: 20px;
   }
   button {
-    @apply bg-secondary  p-1 hover:bg-secondary-dark cursor-pointer rounded-lg active:bg-accent;
+    @apply bg-secondary p-1 hover:bg-secondary-dark cursor-pointer rounded-lg active:bg-accent;
+  }
+  input, textarea {
+    @apply border border-secondary rounded-lg p-2 w-full outline-none focus:border-accent;
   }
 }
 @layer components {

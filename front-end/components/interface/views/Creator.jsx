@@ -19,7 +19,7 @@ export const Creator = ({ createNewDeck }) => {
   return (
     <form>
       <textarea
-        className={"  w-full border border-secondary rounded   resize-none"}
+        className={"resize-none"}
         onChange={handleChange}
         placeholder={"name of deck..."}
         value={deckName}
