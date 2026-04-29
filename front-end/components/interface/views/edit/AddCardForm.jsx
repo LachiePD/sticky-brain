@@ -15,24 +15,29 @@ export const AddCardForm = ({ setAddingCard }) => {
     setAddingCard(false);
   };
   return (
-    <form>
-      <div>
-        <label>Front:</label>
+    <form className="flex flex-col gap-4">
+      <div className="flex flex-col gap-1">
+        <label className="text-xs font-semibold tracking-[0.15em] uppercase text-accent">
+          Front
+        </label>
         <input
           name="front"
           onChange={handleChange}
           type="text"
           value={content.front}
+          placeholder="Question..."
         />
       </div>
-
-      <div>
-        <label>Back:</label>
+      <div className="flex flex-col gap-1">
+        <label className="text-xs font-semibold tracking-[0.15em] uppercase text-success">
+          Back
+        </label>
         <input
           type="text"
           name="back"
           onChange={handleChange}
           value={content.back}
+          placeholder="Answer..."
         />
       </div>
       <button onClick={handleSubmit}>Submit</button>

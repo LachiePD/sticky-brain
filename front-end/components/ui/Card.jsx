@@ -1,7 +1,7 @@
 const styles = {
   card: `flex flex-col
-	bg-primary shadow-xl rounded-2xl
-	border border-secondary 
+	bg-secondary shadow-2xl rounded-2xl
+	border border-secondary-dark
 	p-8
 	gap-4
 	`,
