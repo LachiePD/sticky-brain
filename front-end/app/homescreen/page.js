@@ -13,12 +13,16 @@ const page = () => {
           " flex flex-col min-h-screen p-5 justify-between bg-primary "
         }
       >
-        <header className={"min-h-24"}>
+        <header className={"min-h-24 flex items-center gap-4"}>
           <HamburgerBar handleClick={toggleVisible} />
-          <h1 className={"text-3xl "}>sticky brain </h1>
+          <h1 className={"text-3xl"}>sticky brain</h1>
         </header>
-        <Stage />
-        <Interface />
+        <div className="w-full max-w-2xl mx-auto">
+          <Stage />
+        </div>
+        <div className="w-full max-w-2xl mx-auto">
+          <Interface />
+        </div>
       </main>
     </>
   );

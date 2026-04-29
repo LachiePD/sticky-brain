@@ -8,12 +8,14 @@ const page = () => {
   const router = useRouter();
 
   return (
-    <Card className={"mx-auto gap-5"} header={"Create User!"}>
-      <CreateUserForm />
-      <button className={"button"} onClick={() => router.push("/login")}>
-        Login
-      </button>
-    </Card>
+    <main className={"flex w-full min-h-screen items-center justify-center"}>
+      <Card header={"Create Account"}>
+        <CreateUserForm />
+        <button onClick={() => router.push("/login")}>
+          Already have an account? Login
+        </button>
+      </Card>
+    </main>
   );
 };
 
