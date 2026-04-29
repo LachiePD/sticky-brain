@@ -30,6 +30,6 @@
     @apply bg-secondary hover:brightness-90 w-[1.9em] h-[1.9em] rounded-full;
   }
   .subheader {
-    @apply text-2xl;
+    @apply text-2xl font-semibold;
   }
 }
