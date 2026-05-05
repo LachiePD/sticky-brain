@@ -10,7 +10,7 @@ const page = () => {
       <Sidebar visible={visible} visibleRef={visibleRef} />
       <main
         className={
-          " flex flex-col min-h-screen p-5 justify-between bg-primary "
+          " flex flex-col min-h-screen p-5 justify-between bg-background "
         }
       >
         <header className={"min-h-24 flex items-center gap-4"}>
