@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useApi, useAuth } from "@/providers/index.mjs";
 
-export const LoginForm = () => {
+export const LoginForm = ({ setLoading }) => {
   const api = useApi();
   const [formData, setFormData] = useState({ userName: "", password: "" });
   const router = useRouter();
@@ -14,6 +14,8 @@ export const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setLoading(true);
 
     const result = await api.auth.login({
       userName: formData.userName,

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
 
 const Page = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   return (
     <main className={"flex w-full min-h-screen items-center justify-center"}>
@@ -20,7 +20,7 @@ const Page = () => {
           </>
         ) : (
           <>
-            <LoginForm />
+            <LoginForm setLoading={setLoading} />
             <button onClick={() => router.push("/")}>
               New here? Create an account
             </button>
