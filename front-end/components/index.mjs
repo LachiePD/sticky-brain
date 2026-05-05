@@ -8,3 +8,4 @@ export { Interface } from "./interface/Interface.jsx";
 export { Stage } from "./stage/Stage.jsx";
 export { MeatballMenu } from "./sidebar/meatball/MeatballMenu.jsx";
 export { Subheader } from "./headers/Subheader.jsx";
+export { Loading } from "./ui/Loading.jsx";
