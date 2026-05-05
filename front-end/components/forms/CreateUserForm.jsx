@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useApi } from "@/providers/index.mjs";
 
-export const CreateUserForm = () => {
+export const CreateUserForm = ({ setLoading }) => {
   const api = useApi();
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -21,6 +21,7 @@ export const CreateUserForm = () => {
   //TODO , assert data for second password= first password
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const result = await api.auth.createUser({
       userName: formData.userName,
       password: formData.password,
