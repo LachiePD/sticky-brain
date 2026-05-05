@@ -4,6 +4,7 @@ const styles = {
 	border border-secondary-dark
 	p-8
 	gap-4
+	items-center
 	`,
 };
 

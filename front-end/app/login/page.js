@@ -9,11 +9,11 @@ const Page = () => {
   const router = useRouter();
   return (
     <main className={"flex w-full min-h-screen items-center justify-center"}>
-      <Card className={"flex"} header={"Login"}>
+      <Card className={"flex flex-col  justify-center"} header={"Login"}>
         {loading ? (
           <>
             <Spinner className={"size-8"} />
-            <p>
+            <p className={"max-w-150"}>
               Please note, if you had to wait for the frontend to boot up, then
               the backend is probably still booting up too, please wait
             </p>
