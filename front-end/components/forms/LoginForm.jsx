@@ -27,18 +27,10 @@ export const LoginForm = () => {
   return (
     <form className={" flex mx-auto gap-4 flex-col "} onSubmit={handleSubmit}>
       <label>Username: </label>
-      <input
-        name="userName"
-        type="text"
-        onChange={handleChange}
-      />
+      <input name="userName" type="text" onChange={handleChange} />
 
       <label>Password: </label>
-      <input
-        name="password"
-        type="password"
-        onChange={handleChange}
-      />
+      <input name="password" type="password" onChange={handleChange} />
 
       <button type={"submit"} className={"button"}>
         Login
